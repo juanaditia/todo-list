@@ -12,6 +12,12 @@ class App extends Component {
     };
   }
 
+  handleRemoveItem = (item) => {
+    const data = this.state.items.filter((i) => i.items !== item.items);
+    this.setState({ data });
+    console.log('delete');
+  };
+
   handleSubmit = (event) => {
     event.preventDefault();
     this.setState({
@@ -33,7 +39,10 @@ class App extends Component {
           <input value={this.state.todoItem} onChange={this.handleChange} />
           <button>Add</button>
         </form>
-        <List items={this.state.items} />
+        <List
+          items={this.state.items}
+          handleRemoveItem={this.handleRemoveItem}
+        />
       </div>
     );
   }
