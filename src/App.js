@@ -12,10 +12,12 @@ class App extends Component {
     };
   }
 
-  handleRemoveItem = (item) => {
-    const data = this.state.items.filter((i) => i.items !== item.items);
-    this.setState({ data });
-    console.log('delete');
+  handleRemoveItem = (data) => {
+    const filteredItems = this.state.items.filter((item) => item.data !== data);
+
+    this.setState({
+      items: filteredItems,
+    });
   };
 
   handleSubmit = (event) => {

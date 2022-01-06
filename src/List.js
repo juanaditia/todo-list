@@ -1,7 +1,7 @@
 import React from 'react';
 
 function List(props) {
-  const { handleRemoveItem, item } = props;
+  const { handleRemoveItem } = props;
 
   // const handleRemoveItem = () => {
   //   console.log('hapus');
@@ -16,7 +16,7 @@ function List(props) {
         <li key={index}>
           {' '}
           {item}
-          <button onClick={props.handleRemoveItem.bind(item)}>delete</button>
+          <button onClick={() => handleRemoveItem(item.data)}>delete</button>
         </li>
       ))}
     </ul>
